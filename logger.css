@@ -1,1 +1,60 @@
 /* CSS declarations go here */
+
+body {
+	position: relative;
+}
+
+.navbar {
+	overflow: visible;
+}
+
+.navbar-fixed-top {
+	margin-bottom: 0px;
+	position: static;
+}
+
+#overview {
+	margin-top: 0px;
+	background: linear-gradient(45deg, #020031 0%,#6d3353 100%);
+	color: white;
+}
+
+.jumbotron {
+	margin-top: -20px;
+	position: relative;
+	padding: 40px 0;
+	text-shadow: 0 1px 3px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.075);
+}
+
+.jumbotron .container {
+	position: relative;
+	z-index: 2;
+}
+
+.jumbotron:after {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: url('http://getbootstrap.com/2.3.2/assets/img/bs-docs-masthead-pattern.png');
+	opacity: .4;
+}
+
+.jumbotron h1 {
+	font-size: 60px;
+	font-weight: bold;
+	letter-spacing: -1px;
+	line-height: 1;
+
+	margin: 10px 0;
+}
+
+.jumbotron p {
+	font-size: 24px;
+	font-weight: 300;
+	line-height: 1.25;
+
+}

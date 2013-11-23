@@ -1,19 +1,40 @@
 if (Meteor.isClient) {
-  Template.hello.greeting = function () {
-    return "Welcome to logger.";
+
+
+  Meteor.subscribe("facebookServices");
+  currentUser = Meteor.user();
+
+  Template.greeting.greeting = function () {
+    return "Welcome to Logger!";
   };
 
-  Template.hello.events({
-    'click input' : function () {
-      // template data, if any, is available in 'this'
-      if (typeof console !== 'undefined')
-        console.log("You pressed the button");
+  Template.greeting.userName = function() {
+    var name;
+    if(currentUser) return currentUser.profile.name;
+    else return "Please log in!";
+  }
+
+  Template.greeting.userImage = function()  {
+    
+    if(Meteor.user())  {
+      foo = Meteor.user();
+      return Meteor.user().services;
+      //return "http://graph.facebook.com/" + currentUser.services.facebook.id + "/picture/?type=large";
     }
-  });
+    else return "/silouette.jpg";
+  }
+
+
+
 }
 
 if (Meteor.isServer) {
   Meteor.startup(function () {
-    // code to run on server at startup
+
+  });
+  Meteor.publish("facebookServices", function() {
+    Meteor.users.find({_id:this._id}, {fields: {"facebook.services.id":true}});
   });
 }
+
+

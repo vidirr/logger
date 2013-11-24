@@ -18,7 +18,7 @@ Facebook.prototype.query = function(query, method) {
             done(null, res);
         });
     });
-    return data.result + query;
+    return data.result;
 }
 
 Facebook.prototype.getUserData = function() {

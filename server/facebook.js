@@ -18,7 +18,7 @@ Facebook.prototype.query = function(query, method) {
             done(null, res);
         });
     });
-    return data.result;
+    return data.result + query;
 }
 
 Facebook.prototype.getUserData = function() {
@@ -26,7 +26,7 @@ Facebook.prototype.getUserData = function() {
 }
 
 Facebook.prototype.getUserFriends = function() {
-	return this.query('me/friends', "GET");
+	return this.query('me/friends');
 }
 
 
@@ -36,9 +36,5 @@ Meteor.methods({
         var fb = new Facebook(Meteor.user().services.facebook.accessToken);
         var data = fb.getUserData();
         return data;
-    },
-
-    getUserImage: function() {
-    	return Meteor.user().services.facebook.id;
     }
 });

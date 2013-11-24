@@ -10,7 +10,7 @@ After that:
 
     curl https://install.meteor.com | /bin/sh
     git clone git@github.com:vidirr/logger.git
-    npm install meteorite -g
+    npm install meteorite -g # the -g is mucho importante!
     mrt install
     meteor
     
